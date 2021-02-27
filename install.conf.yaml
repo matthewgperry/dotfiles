@@ -1,0 +1,10 @@
+# dotbot configuration file
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- shell:
+  - chsh -s $(which fish)
+
