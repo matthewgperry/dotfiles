@@ -1,13 +1,13 @@
 # dotbot configuration file
 - defaults:
     link:
+      create: true
       relink: true
 
-- clean: ['~']
+- clean: ['~', '~/.config']
 
 - link:
-    ~/.config/alacritty/alacritty.yml: alacritty
-    ~/.config/autostart/: autostart
-    ~/.config/fish/: fish
+    ~/.config/alacritty/alacritty.yml:
+      path: alacritty.yml
 - shell:
   - chsh -s $(which fish)
