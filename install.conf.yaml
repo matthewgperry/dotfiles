@@ -8,6 +8,5 @@
 - link:
     ~/.config/alacritty/alacritty.yml: alacritty
     ~/.config/autostart/*: autostart
-    ~/.config/fish:
 - shell:
   - chsh -s $(which fish)
