@@ -5,6 +5,8 @@
 
 - clean: ['~']
 
+- link:
+    ~/.config/alacritty/alacritty.yml:
+      path: config/alacritty
 - shell:
   - chsh -s $(which fish)
-
