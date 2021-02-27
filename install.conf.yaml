@@ -6,7 +6,7 @@
 - clean: ['~']
 
 - link:
-    ~/.config/alacritty/alacritty.yml:
-      path: config/alacritty
+    ~/.config/alacritty/alacritty.yml: config/alacritty
+    ~/.config/autostart/*: config/autostart
 - shell:
   - chsh -s $(which fish)
