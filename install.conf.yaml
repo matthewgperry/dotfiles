@@ -8,6 +8,8 @@
 - clean: ['~', '~/.config']
 
 - link:
+
+    # alacritty: terminal emulator
     ~/.config/alacritty/alacritty.yml: alacritty.yml
 
     # fish shell: smart and user-friendly command line shell for *nix
@@ -19,11 +21,17 @@
       path: fish/functions/*.fish
       glob: true
 
+    # git
+    ~/.config/git/config: git/config
+
     # neovim: Vim-fork focused on extensibility and usability 
     ~/.config/nvim/:
       path: nvim/*
       glob: true
       exclude: [ nvim/plugged ]
+    # tmux: terminal multiplexer
+    ~/.config/tmux/tmux.conf: tmux/tmux.conf
+      
 
 - shell:
   - chsh -s $(which fish)

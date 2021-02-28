@@ -1,0 +1,8 @@
+[user]
+	name = Matthew Perry
+	email = mattp@tuta.io
+	username = MattPerry1216
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
