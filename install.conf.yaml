@@ -2,12 +2,22 @@
 - defaults:
     link:
       create: true
-      relink: true
 
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.config/alacritty/alacritty.yml:
-      path: alacritty.yml
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
+
+    # Fish Shell
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/conf.d:
+      path: fish/conf.d/*.fish
+      glob: true
+    ~/.config/fish/functions:
+      path: fish/functions/*.fish
+      glob: true
+    # Nvim
+    ~/.config/nvim/init.vim: nvim/init.vim
+
 - shell:
   - chsh -s $(which fish)
