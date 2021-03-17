@@ -15,10 +15,7 @@ set showcmd
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab
-set copyindent
-set smarttab
-set bs=indent,eol,start
+set expandtab
 
 augroup SomeName
 		autocmd!
@@ -28,13 +25,6 @@ augroup END
 autocmd BufRead,BufNewFile *.md setlocal spell
 
 """ Vim-Plug
-" Auto Install
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug-vim
-    autocmd VimEnter * PlugInstall --sync
-endif
-
 call plug#begin()
 
 " Aesthetics/Themes
