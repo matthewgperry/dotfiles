@@ -30,6 +30,7 @@ call plug#begin()
 " Aesthetics/Themes
 Plug 'vim-airline/vim-airline'
 Plug 'whatyouhide/vim-gotham'
+Plug 'chrisbra/Colorizer'
 
 " Functional
 Plug 'sheerun/vim-polyglot'

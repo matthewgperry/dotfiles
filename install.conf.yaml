@@ -31,7 +31,9 @@
       exclude: [ nvim/plugged ]
     # tmux: terminal multiplexer
     ~/.config/tmux/tmux.conf: tmux/tmux.conf
-      
+    
+    # x
+    ~/.xinitrc: xinitrc
 
 - shell:
   - chsh -s $(which fish)
