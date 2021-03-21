@@ -2,6 +2,10 @@
 	name = Matthew Perry
 	email = mattp@tuta.io
 [color]
+	branch = auto
+	diff = auto
+	status = auto
+	showbranch =auto
 	ui = auto
 [init]
 	defaultBranch = main

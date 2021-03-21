@@ -12,6 +12,7 @@ fi
 pulseaudio --daemonize &
 wal -i ~/Pictures/wallpapers/ &
 (cd ~/Projects/wm/dwm ; sudo make clean install) &
+(cd ~/Projects/wm/dmenu ; sudo make clean install) &
 # feh --bg-scale ~/Pictures/wallpaper.jpg &
 slstatus &
 picom &
