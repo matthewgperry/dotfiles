@@ -4,7 +4,7 @@ set nocompatible
 syntax on
 set hidden
 set autoindent
-set number
+set number relativenumber
 set ignorecase
 set showmatch
 set ttyfast
@@ -29,7 +29,8 @@ call plug#begin()
 
 " Aesthetics/Themes
 Plug 'vim-airline/vim-airline'
-Plug 'whatyouhide/vim-gotham'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' } 
+" Plug 'whatyouhide/vim-gotham'
 Plug 'chrisbra/Colorizer'
 
 " Functional
@@ -42,10 +43,14 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-" Colorscheme/Theme
-set termguicolors
+" Colorscheme/Theme"
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
-colorscheme gotham
+colorscheme spaceduck
 
 let mapleader = ","
 let g:vim_markdown_folding_disabled = 1
