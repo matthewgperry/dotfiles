@@ -39,8 +39,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'takac/vim-hardtime'
-" Plug 'vivien/vim-linux-coding-style' " Adds 80 character per line highlighting
 
 call plug#end()
 
@@ -52,10 +50,11 @@ if exists('+termguicolors')
 endif
 
 colorscheme spaceduck
+" Highlight the 81th column as a warning
+highlight ColorColumn ctermbg=red
+call matchadd('ColorColumn', '\%81v', 100)
 
-let g:hardtime_default_on = 1
-
-let mapleader = ","
+let mapleader = "<space>"
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_conceal = 0
 let g:tex_conceal = ""
@@ -65,5 +64,5 @@ let g:vim_markdown_json = 1
 let g:mkdp_auto_close = 0
 noremap <M-m> :MarkdownPreview<CR>
 
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+inoremap <C-s-p> <c-g>u<Esc>[s1z=`]a<c-g>u
 nn <F7> :setlocal spell! spell?<CR>
