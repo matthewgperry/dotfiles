@@ -4,7 +4,7 @@ set nocompatible
 syntax on
 set hidden
 set autoindent
-set number relativenumber
+set number
 set ignorecase
 set showmatch
 set ttyfast
@@ -22,8 +22,6 @@ augroup SomeName
 		autocmd FileType markdown set wrap
 augroup END
 
-autocmd BufRead,BufNewFile *.md setlocal spell
-
 """ Vim-Plug
 call plug#begin()
 
@@ -35,10 +33,10 @@ Plug 'chrisbra/Colorizer'
 
 " Functional
 Plug 'sheerun/vim-polyglot'
-Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
@@ -54,15 +52,39 @@ colorscheme spaceduck
 highlight ColorColumn ctermbg=red
 call matchadd('ColorColumn', '\%81v', 100)
 
-let mapleader = "<space>"
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_folding_conceal = 0
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
-let g:vim_markdown_json = 1
+let mapleader = "\<Space>"
 
-let g:mkdp_auto_close = 0
+let g:mkdp_markdown_css = '/home/matt/Notes/.css/base.css'
 noremap <M-m> :MarkdownPreview<CR>
 
 inoremap <C-s-p> <c-g>u<Esc>[s1z=`]a<c-g>u
 nn <F7> :setlocal spell! spell?<CR>
+
+""" Mappings for notes
+let g:notes = "/home/matt/Notes/"
+if executable('rg')
+    set grepprg=rg\ --color=never\ --vimgrep
+endif
+
+command! -nargs=1 Ngrep grep "<args>" -g "*.md" ~/Notes
+nnoremap <leader>ng :Ngrep
+
+command! Vlist botright vertical copen | vertical resize 20
+nnoremap <leader>v :Vlist<CR>
+
+nnoremap <leader>nt :!ctags -R . <CR>
+" Go to notes' index
+nnoremap <leader>ni :e ~/Notes/index.md<CR>:cd ~/Notes<CR>
+" Create new note, <space>nn filename
+command! -nargs=1 NewNote :execute ":e" notes . strftime("%m%d%y") . "-<args>.md"
+nnoremap <leader>nn :NewNote
+
+function! HandleFZF(file)
+    let filename = fnameescape(a:file)
+    let filename_wo_timestamp = fnameescape(fnamemodify(a:file, ":t:s/^[0-9]*-//"))
+    let mdlink = "[ ".filename_wo_timestamp." ]( ".filename." )"
+    put=mdlink
+endfunction
+
+command! -nargs=1 HandleFZF :call HandleFZF(<f-args>)
+nnoremap <leader>nl ::call fzf#run({'sink': 'HandleFZF'})
