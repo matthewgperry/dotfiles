@@ -48,9 +48,9 @@ if exists('+termguicolors')
 endif
 
 colorscheme spaceduck
-" Highlight the 81th column as a warning
-highlight ColorColumn ctermbg=red
-call matchadd('ColorColumn', '\%81v', 100)
+" Highlight the 81th column (only non-space) as a warning
+highlight ColorColumn ctermbg=magenta guibg=magenta
+call matchadd('ColorColumn', '\%81v\s*\zs\S', 100)
 
 let mapleader = "\<Space>"
 
