@@ -55,9 +55,10 @@ call matchadd('ColorColumn', '\%81v\s*\zs\S', 100)
 let mapleader = "\<Space>"
 
 let g:mkdp_markdown_css = '/home/matt/Notes/.css/base.css'
+let g:mkdp_page_title = 'Preview - ${name}'
 noremap <M-m> :MarkdownPreview<CR>
 
-inoremap <C-s-p> <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <M-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 nn <F7> :setlocal spell! spell?<CR>
 
 """ Mappings for notes
