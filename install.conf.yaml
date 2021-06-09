@@ -10,7 +10,7 @@
 - link:
 
     # alacritty: terminal emulator
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
 
     # fish shell: smart and user-friendly command line shell for *nix
     ~/.config/fish/config.fish: fish/config.fish
