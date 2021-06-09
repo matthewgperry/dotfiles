@@ -34,3 +34,4 @@
 
 - shell:
   - chsh -s $(which fish)
+  - sudo pacman -S - < pkglist.txt
