@@ -15,6 +15,7 @@ wal -i ~/Pictures/wallpapers/ &
 (cd ~/Projects/wm/dmenu ; sudo make clean install) &
 slstatus &
 picom &
+syncthing -no-browser &
 server_linux_no_tray_debug &
 
 pidof -s openrc &&
