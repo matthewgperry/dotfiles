@@ -35,7 +35,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'junegunn/goyo.vim'
-Plug 'jiangmiao/auto-pairs'
+#Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
